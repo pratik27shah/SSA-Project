@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <target name="compilecode" >
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes">
+
+    </javac>
+    </target>
+ 
+    <target name="testcode" depends="compilecode">
+        <mkdir dir="build/jar"/>
+ <jar destfile="project.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="Start_Class"/>
+            </manifest>
+        </jar>
+    </target>
+ 
+    <target name="runcode" depends="testcode">
+        <java jar="project.jar" fork="true"/>
+      
+    </target>
+
+
+</project>
